@@ -9,7 +9,7 @@
     android:paddingRight="48dp"
     android:paddingTop="100dp"
     tools:context="domain.internationalwaters.internationalwaters.Home"
-    android:background="@color/colorPrimaryDark">
+    android:background="#006994">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +17,13 @@
         android:orientation="vertical"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/app_logo"/>
 
         <TextView
             android:id="@+id/Distance_id"
