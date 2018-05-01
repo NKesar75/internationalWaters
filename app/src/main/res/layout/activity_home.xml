@@ -32,6 +32,11 @@
             android:textSize="24sp"/>
 
         <TextView
+            android:id="@+id/timetaken_id"
+            style="@style/txtview_style"
+            android:text=""
+            android:textSize="24sp"/>
+        <TextView
             android:id="@+id/walk_id"
             style="@style/txtview_style"
             android:text=""

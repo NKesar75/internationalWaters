@@ -33,6 +33,7 @@ public class Home extends AppCompatActivity {
     private TextView carlabel;
     private TextView walklabel;
     private TextView planelabel;
+    private TextView timeTaken;
     static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     Double lon;
@@ -50,6 +51,7 @@ public class Home extends AppCompatActivity {
         carlabel = findViewById(R.id.car_id);
         planelabel = findViewById(R.id.flight_id);
         walklabel = findViewById(R.id.walk_id);
+        timeTaken = findViewById(R.id.timetaken_id);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         getLocation();
