@@ -91,12 +91,14 @@ public class Home extends AppCompatActivity {
 
 
                 if (east > west){
-                    distancelabel.setText("Distance: " + West + " Miles" + "\n time taken:");
+                    distancelabel.setText("Distance: " + West + " Miles");
+                    timeTaken.setText("Approximate time to reach:");
                     walklabel.setText("Walk: " + roundTwoDecimals(West/3) + " Hours");
                     carlabel.setText("Car: " + roundTwoDecimals(West/70) + " Hours");
                     planelabel.setText("Plane: " + roundTwoDecimals(West/575)+ " Hours");
                 }else{
                     distancelabel.setText("Distance: " + East + " Miles");
+                    timeTaken.setText("Approximate time to reach:");
                     walklabel.setText("Walk: " + roundTwoDecimals(East/3) + " Hours");
                     carlabel.setText("Car: " + roundTwoDecimals(East/70) + " Hours");
                     planelabel.setText("Plane: " + roundTwoDecimals(East/575) + " Hours");
