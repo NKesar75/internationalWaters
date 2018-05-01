@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -28,6 +30,9 @@ public class Home extends AppCompatActivity {
 
     private TextView distancelabel;
     private Button distancebuttonid;
+    private TextView carlabel;
+    private TextView walklabel;
+    private TextView planelabel;
     static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     Double lon;
@@ -42,6 +47,10 @@ public class Home extends AppCompatActivity {
         distancebuttonid = findViewById(R.id.distance_button);
 
         distancelabel = findViewById(R.id.Distance_id);
+        carlabel = findViewById(R.id.car_id);
+        planelabel = findViewById(R.id.flight_id);
+        walklabel = findViewById(R.id.walk_id);
+
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         getLocation();
 
@@ -80,9 +89,15 @@ public class Home extends AppCompatActivity {
 
 
                 if (east > west){
-                    distancelabel.setText(West + " Miles");
+                    distancelabel.setText("Distance: " + West + " Miles" + "\n time taken:");
+                    walklabel.setText("Walk: " + roundTwoDecimals(West/3) + " Hours");
+                    carlabel.setText("Car: " + roundTwoDecimals(West/70) + " Hours");
+                    planelabel.setText("Plane: " + roundTwoDecimals(West/575)+ " Hours");
                 }else{
-                    distancelabel.setText(East + " Miles");
+                    distancelabel.setText("Distance: " + East + " Miles");
+                    walklabel.setText("Walk: " + roundTwoDecimals(East/3) + " Hours");
+                    carlabel.setText("Car: " + roundTwoDecimals(East/70) + " Hours");
+                    planelabel.setText("Plane: " + roundTwoDecimals(East/575) + " Hours");
                 }
 
 
