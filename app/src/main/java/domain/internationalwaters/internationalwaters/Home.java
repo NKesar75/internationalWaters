@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.atan2;
@@ -25,7 +28,6 @@ public class Home extends AppCompatActivity {
 
     private TextView distancelabel;
     private Button distancebuttonid;
-    private Button directionbuttonid;
     static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
     Double lon;
@@ -38,18 +40,11 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         distancebuttonid = findViewById(R.id.distance_button);
-        directionbuttonid = findViewById(R.id.directions_button);
+
         distancelabel = findViewById(R.id.Distance_id);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         getLocation();
 
-        directionbuttonid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
 
         distancebuttonid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +64,9 @@ public class Home extends AppCompatActivity {
                 double west = (20903520.0f * (2.0f * atan2(sqrt(x), sqrt(1.0f - x))));
                 west = west * 0.000189394;
 
+                 double West =  roundTwoDecimals(west);
+
+
                  flat3 = ((eintlat - lat) * (Math.PI / 180.0f));
                  flon3 = ((eintlon - lon) * (Math.PI / 180.0f));
 
@@ -77,10 +75,14 @@ public class Home extends AppCompatActivity {
                 double east = (20903520.0f * (2.0f * atan2(sqrt(x), sqrt(1.0f - x))));
                 east = east * 0.000189394;
 
+
+                double East =  roundTwoDecimals(east);
+
+
                 if (east > west){
-                    distancelabel.setText(west + " Miles");
+                    distancelabel.setText(West + " Miles");
                 }else{
-                    distancelabel.setText(east + " Miles");
+                    distancelabel.setText(East + " Miles");
                 }
 
 
@@ -88,7 +90,11 @@ public class Home extends AppCompatActivity {
         });
 
     }
-
+    double roundTwoDecimals(double d)
+    {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+    }
 
     void getLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
