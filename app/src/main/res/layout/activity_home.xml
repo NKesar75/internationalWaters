@@ -21,19 +21,31 @@
         <TextView
             android:id="@+id/Distance_id"
             style="@style/txtview_style"
-            android:text="Distance To International Waters"
-            android:textSize="24sp" />
+            android:text=""
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/walk_id"
+            style="@style/txtview_style"
+            android:text=""
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/car_id"
+            style="@style/txtview_style"
+            android:text=""
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/flight_id"
+            style="@style/txtview_style"
+            android:text=""
+            android:textSize="24sp"/>
 
     <Button
         android:id="@+id/distance_button"
-        android:text="Find Distance"
+        android:text="find the distance to\nInternational Waters"
         style="@style/button_style"/>
-
-    <Button
-        android:id="@+id/directions_button"
-        android:text="Directions"
-        style="@style/button_style"/>
-
     </LinearLayout>
 
 </RelativeLayout>
